@@ -1,0 +1,35 @@
+<h1>{{ title }}</h1>
+<p>
+    <ng-container *ngIf="currentPage$ | async as currentPage">
+        <app-child [currentPage]="currentPage"></app-child>
+    </ng-container>
+    <app-child></app-child>
+    <app-child></app-child>
+</p>
+<p>
+    <button (click)="increment()" #incrementButton>Increment</button>
+    <button (click)="increment()" #incrementButton>Increment</button>
+    <button (click)="increment()" #incrementButton>Increment</button>
+</p>
+
+<p>
+    <button (click)="decrement()">Decrement</button>
+</p>
+<p>
+    <a [routerLink]="['/', 'users']" routerLinkActive="router-link-active">Users</a>
+</p>
+
+<button type="button" (click)="fadeInOut()">Fade in / out</button>
+
+<div @fadeIn @fadeOut *ngIf="isShown"> This is a block with fade in / out</div>
+
+<div [@fadeInOut]="isShown ? 'open': 'close'" backgroundChanger> This is a block with fade in / out</div>
+
+<div>{{ person | fullName}}</div>
+
+<div (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" #element>Element</div>
+<div>
+    {{position | json}}
+</div>
+
+<router-outlet></router-outlet>

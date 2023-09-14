@@ -1,0 +1,10 @@
+{{ data$ | async }}
+<h1>Users</h1>
+<span *ngIf="isLoading$ | async">Loading...</span>
+<span *ngIf="error$ | async as error">{{ error }}</span>
+<div *ngFor="let user of users$ | async">
+  <span>{{ user.name }}</span>
+</div>
+<p>
+  <a [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+</p>
